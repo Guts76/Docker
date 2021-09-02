@@ -1,0 +1,20 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      # Should not be empty or undefenied. It sets the superuser password for PostgreSQL
+      POSTGRES_PASSWORD: azerty
+      POSTGRES_USER: jules
+      POSTGRES_DB: exercice_db_postgres
+
+  # Adminer is a full-featured database management tool written in PHP.
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
